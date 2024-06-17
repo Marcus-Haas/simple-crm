@@ -5,6 +5,8 @@ import { MatTooltipModule } from '@angular/material/tooltip';
 import { DialogAddUserComponent } from '../dialog-add-user/dialog-add-user.component';
 import { MatDialog } from '@angular/material/dialog';
 
+
+
 @Component({
   selector: 'app-user',
   standalone: true,
@@ -12,6 +14,9 @@ import { MatDialog } from '@angular/material/dialog';
   templateUrl: './user.component.html',
   styleUrl: './user.component.scss'
 })
+
+
+
 export class UserComponent {
 
   constructor(public dialog: MatDialog) { }
