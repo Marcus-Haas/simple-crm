@@ -1,0 +1,44 @@
+.user-detail-header {
+    min-height: 300px;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-end;
+    background-color: #f75c06;
+    color: white;
+    padding: 8px;
+    box-sizing: border-box;
+
+    img {
+        height: 100px;
+        width: 100px;
+        object-fit: cover;
+        border-radius: 100%;
+    }
+}
+
+.user-box {
+    height: 100px;
+    display: flex;
+}
+
+.user-detail {
+    margin-left: 16px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+
+    h2 {
+        margin-bottom: 0;
+    }
+}
+
+.address-container {
+    margin-top: 32px;
+}
+
+.upper-right-btn {
+    position: absolute;
+    top: 2px;
+    right: 2px;
+}
