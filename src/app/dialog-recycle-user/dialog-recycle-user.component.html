@@ -1,0 +1,9 @@
+<div>
+    <mat-dialog-content>
+        Are you sure to delete this user?
+        <mat-dialog-actions>
+            <button mat-button (click)="dialogRef.close()">Cancel</button>
+            <button mat-button (click)="deleteUser()" routerLink="/user" cdkFocusInitial>Delete user</button>
+        </mat-dialog-actions>
+    </mat-dialog-content>
+</div>

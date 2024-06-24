@@ -1,5 +1,5 @@
 import { Injectable, inject } from '@angular/core';
-import { Firestore, collection, addDoc, onSnapshot, doc, updateDoc } from '@angular/fire/firestore';
+import { Firestore, collection, addDoc, onSnapshot, doc, updateDoc, deleteDoc } from '@angular/fire/firestore';
 import { User } from '../../models/user.class';
 
 
@@ -12,17 +12,17 @@ export class FirebaseService {
   constructor() {
   }
 
-  async addUser(userData: object) {
-    await addDoc(this.getUserRef(), userData)
+  async addUser(collectionName: any, userData: object) {
+    await addDoc(this.getUserRef(collectionName), userData)
       .then((docRef) => {
         this.userId = docRef.id;
       });
-    let userDoc = this.getSingleUserRef("user", this.userId);
+    let userDoc = this.getSingleUserRef(collectionName, this.userId);
     await updateDoc(userDoc, { id: this.userId });
   }
 
-  ReadData(array: object[]) {
-    return onSnapshot(this.getUserRef(), (element) => {
+  ReadData(collectionName: any, array: object[]) {
+    return onSnapshot(this.getUserRef(collectionName), (element) => {
       array.length = 0;
       element.forEach(user => {
         array.push(user.data());
@@ -35,8 +35,13 @@ export class FirebaseService {
     await updateDoc(userDoc, user.toJSON());
   }
 
-  getUserRef() {
-    return collection(this.firestore, "user");
+  async deleteData(collectionName: any, docId: string) {
+    let userDoc = this.getSingleUserRef(collectionName, docId);
+    await deleteDoc(userDoc);
+  }
+
+  getUserRef(collectionName: any) {
+    return collection(this.firestore, collectionName);
   }
 
   getSingleUserRef(colId: string, docId: string) {

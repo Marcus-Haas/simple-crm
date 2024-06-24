@@ -2,13 +2,16 @@ mat-card-content {
     padding: 0;
 }
 
+tr {
+    position: relative;
+}
+
 .user-table {
     width: 100%;
     border-collapse: collapse;
 
     tr {
         border-bottom: 1px solid rgba(0, 0, 0, 0.2);
-        cursor: pointer;
 
         &:first-child {
             cursor: unset;
@@ -36,10 +39,6 @@ mat-card-content {
             }
         }
 
-        &:hover {
-            background-color: rgba(0, 0, 0, 0.05);
-        }
-
     }
 
     th {
@@ -50,8 +49,9 @@ mat-card-content {
     }
 }
 
-.add-user-btn {
-    position: absolute;
-    right: 56px;
-    bottom: 56px;
+.trash-container {
+    height: 48px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
 }

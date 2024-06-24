@@ -1,0 +1,28 @@
+<mat-card>
+    <mat-card-content>
+        <table class="user-table">
+            <tr>
+                <th>Name</th>
+                <th>E-mail</th>
+                <th>City</th>
+            </tr>
+            @for (user of allDeletedUsers; track $index) {
+            <tr>
+                <td>{{ user.lastName }}, {{ user.firstName }}</td>
+                <td>{{ user.email }}</td>
+                <td>{{ user.city }}</td>
+                <div class="trash-container">
+                    <button mat-mini-fab color="primary" matTooltip="Restore" [matTooltipPosition]="'before'"
+                        (click)="openRestoreDialog(user.id)">
+                        <mat-icon>restore_from_trash</mat-icon>
+                    </button>
+                    <button mat-mini-fab color="accent" (click)="openFinalDeleteDialog(user.id)" matTooltip="Delete forever"
+                        [matTooltipPosition]="'right'">
+                        <mat-icon>delete_forever</mat-icon>
+                    </button>
+                </div>
+            </tr>
+            }
+        </table>
+    </mat-card-content>
+</mat-card>

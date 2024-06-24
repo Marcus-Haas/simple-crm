@@ -14,22 +14,53 @@
             {{ user.email }}
         </div>
     </div>
+
+    <button (click)="openRecycleDialog(); $event.stopPropagation()" class="trash-btn" mat-mini-fab color="primary"
+        matTooltip="Delete User" [matTooltipPosition]="'before'">
+        <mat-icon>delete</mat-icon>
+    </button>
 </mat-card>
 
-<mat-card class="address-container">
+<mat-card class="card-container">
 
     <button mat-icon-button [matMenuTriggerFor]="menuAddress" class="upper-right-btn">
         <mat-icon>more_vert</mat-icon>
     </button>
     <mat-menu #menuAddress="matMenu">
-        <button mat-menu-item (click)="editMenu()">Edit</button>
+        <button mat-menu-item (click)="editMenu()">Edit address</button>
     </mat-menu>
 
     <mat-card-header>
-        <mat-card-title>Address</mat-card-title>
+        <div class="head-icon-box">
+            <mat-icon>home</mat-icon>
+            <mat-card-title>Address</mat-card-title>
+        </div>
     </mat-card-header>
     <mat-card-content>
         {{ user.street }}<br>
-        {{ user.postal}} {{user.city}}
+        {{ user.postal}} {{ user.city }}
     </mat-card-content>
+
+</mat-card>
+
+<mat-card class="card-container">
+
+    <button mat-icon-button [matMenuTriggerFor]="menuBirthday" class="upper-right-btn">
+        <mat-icon>more_vert</mat-icon>
+    </button>
+    <mat-menu #menuBirthday="matMenu">
+        <button mat-menu-item (click)="editBirthday()">Edit birthdate</button>
+    </mat-menu>
+
+    <mat-card-header>
+        <div class="head-icon-box">
+            <mat-icon>cake</mat-icon>
+            <mat-card-title>Birthday</mat-card-title>
+        </div>
+    </mat-card-header>
+    <mat-card-content>
+        {{ birthday | date:'longDate' }}
+    </mat-card-content>
+
+
 </mat-card>

@@ -33,12 +33,24 @@
     }
 }
 
-.address-container {
-    margin-top: 32px;
+.card-container {
+    margin-top: 16px;
 }
 
 .upper-right-btn {
     position: absolute;
     top: 2px;
     right: 2px;
+}
+
+.head-icon-box {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.trash-btn {
+    position: absolute;
+    bottom: 4px;
+    right: 8px;
 }

@@ -1,0 +1,9 @@
+<div>
+    <mat-dialog-content>
+        Do you want to restore this user?
+        <mat-dialog-actions>
+            <button mat-button (click)="dialogRef.close()">No</button>
+            <button mat-button (click)="restoreUser()" routerLink="/user" cdkFocusInitial>Yes</button>
+        </mat-dialog-actions>
+    </mat-dialog-content>
+</div>
