@@ -7,6 +7,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { MatCardModule } from '@angular/material/card';
 import { FirebaseService } from '../firebase-service/firebase.service';
 import { RouterModule } from '@angular/router';
+import { User } from '../../models/user.class';
 
 
 
@@ -22,16 +23,36 @@ import { RouterModule } from '@angular/router';
 
 export class UserComponent implements OnInit {
 
-  allUsers: any = [];
+  allUsers: User[] = [];
 
   constructor(public dialog: MatDialog, public service: FirebaseService) {
   }
 
   ngOnInit(): void {
     this.service.ReadData("user", this.allUsers);
+    console.log(this.allUsers);
+
   }
 
   openDialog() {
     this.dialog.open(DialogAddUserComponent);
+  }
+
+  sortName() {
+    this.allUsers.sort(function (a: User, b: User) {
+      return a.lastName.localeCompare(b.lastName);
+    });
+  }
+
+  sortEmail() {
+    this.allUsers.sort(function (a: User, b: User) {
+      return a.email.localeCompare(b.email);
+    });
+  }
+
+  sortCity() {
+    this.allUsers.sort(function (a: User, b: User) {
+      return a.city.localeCompare(b.city);
+    });
   }
 }

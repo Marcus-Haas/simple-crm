@@ -55,3 +55,23 @@ mat-card-content {
     right: 56px;
     bottom: 56px;
 }
+
+.sort {
+    cursor: pointer;
+    position: absolute;
+    bottom: -8px;
+
+    &:hover {
+        font-size: 28px;
+    }
+}
+
+.sort-wrapper {
+    display: flex;
+    align-items: baseline;
+}
+
+.sort-helper {
+    height: 100%;
+    position: relative;
+}
