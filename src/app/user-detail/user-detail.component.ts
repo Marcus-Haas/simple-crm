@@ -26,7 +26,7 @@ export class UserDetailComponent implements OnInit {
 
   userId: string = '';
   user: User = new User;
-  birthday: Date = new Date();
+  birthday: number = 0;
 
 
   constructor(private route: ActivatedRoute, private service: FirebaseService, public dialog: MatDialog,) {
@@ -46,7 +46,7 @@ export class UserDetailComponent implements OnInit {
   getUserDetails() {
     return onSnapshot(this.service.getSingleUserRef("user", this.userId), (element) => {
       this.user = new User(element.data());
-      this.birthday = new Date(this.user.birthDate);
+      this.birthday = this.user.birthDate;      
     });
   }
 
@@ -65,6 +65,8 @@ export class UserDetailComponent implements OnInit {
 
   editBirthday() {
     const dialog = this.dialog.open(DialogEditBirthdayComponent);
+    dialog.componentInstance.user = new User(this.user.toJSON());
+    dialog.componentInstance.userId = this.userId;
   }
 
   openRecycleDialog() {
