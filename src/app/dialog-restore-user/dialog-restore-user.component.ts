@@ -25,13 +25,13 @@ export class DialogRestoreUserComponent implements OnInit {
   }
 
   getUserDetails() {
-    return onSnapshot(this.service.getSingleUserRef("trash", this.userId), (element) => {
+    return onSnapshot(this.service.getSingleDataRef("trash", this.userId), (element) => {
       this.user = new User(element.data());
     });
   }
 
   async restoreUser() {
-    await this.service.addUser("user", this.user.toJSON());
+    await this.service.addData("user", this.user.toJSON());
     await this.service.deleteData("trash", this.userId)
       .then(() => {
         this.dialogRef.close();

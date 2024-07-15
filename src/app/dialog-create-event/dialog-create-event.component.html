@@ -1,0 +1,64 @@
+<div class="dialog-container">
+
+    @if(loading){
+    <mat-progress-bar mode="indeterminate"></mat-progress-bar>
+    }
+
+    <h2 mat-dialog-title>Create Event</h2>
+    <mat-dialog-content>
+
+        <div class="input-style-container">
+            <mat-form-field appearance="outline" class="full-width">
+                <mat-label>Event name</mat-label>
+                <input [disabled]="loading" [(ngModel)]="project.projectName" matInput placeholder="Event name">
+                <!-- <mat-hint>Please enter your name</mat-hint> -->
+            </mat-form-field>
+
+        </div>
+
+        <div>
+            <mat-form-field appearance="outline" class="full-width">
+                <mat-label>Event date</mat-label>
+                <input datetime="yyyy-MM-dd" [disabled]="loading" [(ngModel)]="projectDate" matInput
+                    [matDatepicker]="picker">
+                <!-- <mat-hint>MM/DD/YYYY</mat-hint> -->
+                <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+                <mat-datepicker #picker></mat-datepicker>
+            </mat-form-field>
+        </div>
+
+        <div class="input-style-container">
+            <mat-form-field>
+                <mat-label>Status</mat-label>
+                <mat-select [(ngModel)]="project.status">
+                    <mat-option value="Offer">Offer</mat-option>
+                    <mat-option value="Order">Order</mat-option>
+                    <mat-option value="Cancelation">Cancelation</mat-option>
+                    <mat-option value="Done">Done</mat-option>
+                </mat-select>
+            </mat-form-field>
+
+            <mat-form-field appearance="outline">
+                <mat-label>Revenue</mat-label>
+                <input [disabled]="loading" [(ngModel)]="project.revenue" matInput placeholder="Euro">
+                <!-- <mat-hint>Please enter your name</mat-hint> -->
+            </mat-form-field>
+        </div>
+
+        <div class="input-style-container">
+            <mat-form-field>
+                <mat-label>Project manager</mat-label>
+                <mat-select [(ngModel)]="project.manager">
+                    @for(user of allUsers; track $index){
+                    <mat-option value="{{ user.firstName }} {{ user.lastName }}">{{ user.firstName }} {{ user.lastName}}</mat-option>
+                    }
+                </mat-select>
+            </mat-form-field>
+        </div>
+
+    </mat-dialog-content>
+    <mat-dialog-actions>
+        <button mat-button (click)="dialogRef.close()">Cancel</button>
+        <button mat-button (click)="saveProject()" cdkFocusInitial>Create</button>
+    </mat-dialog-actions>
+</div>

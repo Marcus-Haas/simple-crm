@@ -25,7 +25,7 @@ import { DialogRecycleUserComponent } from '../dialog-recycle-user/dialog-recycl
 export class UserDetailComponent implements OnInit {
 
   userId: string = '';
-  user: User = new User;
+  user: User = new User();
   birthday: number = 0;
 
 
@@ -44,7 +44,7 @@ export class UserDetailComponent implements OnInit {
   }
 
   getUserDetails() {
-    return onSnapshot(this.service.getSingleUserRef("user", this.userId), (element) => {
+    return onSnapshot(this.service.getSingleDataRef("user", this.userId), (element) => {
       this.user = new User(element.data());
       this.birthday = this.user.birthDate;      
     });

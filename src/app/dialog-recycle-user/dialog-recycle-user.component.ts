@@ -21,7 +21,7 @@ export class DialogRecycleUserComponent {
 
   async deleteUser() {
     if (this.userId) {
-      await this.service.addUser("trash", this.user.toJSON())
+      await this.service.addData("trash", this.user.toJSON())
         .then(() => {
           this.dialogRef.close();
         });

@@ -1,0 +1,37 @@
+<mat-card>
+    <mat-card-content>
+        <table class="user-table" matSort (matSortChange)="sortData($event)">
+            <tr>
+                <th mat-sort-header="projectname">
+                    Projectname
+                </th>
+                <th mat-sort-header="projectdate">
+                    Date
+                </th>
+                <th mat-sort-header="status">
+                    Status
+                </th>
+                <th mat-sort-header="projectmanager">
+                    Projectmanager
+                </th>
+                <th mat-sort-header="revenue">
+                    Revenue EUR
+                </th>
+            </tr>
+            @for(project of allProjects; track $index){
+            <tr>
+                <td>{{ project.projectName }}</td>
+                <td>{{ project.projectDate | date: 'dd.MM.yyyy' }}</td>
+                <td>{{ project.status }}</td>
+                <td>{{ project.manager }}</td>
+                <td>{{ project.revenue }} EUR</td>
+            </tr>
+            }
+        </table>
+    </mat-card-content>
+</mat-card>
+
+<button (click)="openEventDialog()" class="add-event-btn" mat-fab color="primary" matTooltip="Create new event"
+    [matTooltipPosition]="'above'">
+    <mat-icon>add</mat-icon>
+</button>

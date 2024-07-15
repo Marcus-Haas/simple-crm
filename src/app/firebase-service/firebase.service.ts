@@ -1,6 +1,7 @@
 import { Injectable, inject } from '@angular/core';
 import { Firestore, collection, addDoc, onSnapshot, doc, updateDoc, deleteDoc } from '@angular/fire/firestore';
 import { User } from '../../models/user.class';
+import { Project } from '../../models/project.class';
 
 
 @Injectable({
@@ -8,43 +9,48 @@ import { User } from '../../models/user.class';
 })
 export class FirebaseService {
   firestore: Firestore = inject(Firestore);
-  userId: string = '';
+  id: string = '';
   constructor() {
   }
 
-  async addUser(collectionName: any, userData: object) {
-    await addDoc(this.getUserRef(collectionName), userData)
+  async addData(collectionName: any, Data: object) {
+    await addDoc(this.getDataRef(collectionName), Data)
       .then((docRef) => {
-        this.userId = docRef.id;
+        this.id = docRef.id;
       });
-    let userDoc = this.getSingleUserRef(collectionName, this.userId);
-    await updateDoc(userDoc, { id: this.userId });
+    let userDoc = this.getSingleDataRef(collectionName, this.id);
+    await updateDoc(userDoc, { id: this.id });
   }
 
   ReadData(collectionName: any, array: object[]) {
-    return onSnapshot(this.getUserRef(collectionName), (element) => {
+    return onSnapshot(this.getDataRef(collectionName), (element) => {
       array.length = 0;
-      element.forEach(user => {
-        array.push(user.data());
+      element.forEach(obj => {
+        array.push(obj.data());
       });
     });
   }
 
   async updateUser(user: User, docId: string) {
-    let userDoc = this.getSingleUserRef("user", docId);
+    let userDoc = this.getSingleDataRef("user", docId);
     await updateDoc(userDoc, user.toJSON());
   }
 
-  async deleteData(collectionName: any, docId: string) {
-    let userDoc = this.getSingleUserRef(collectionName, docId);
+  async updateEvent(project: Project, docId: string) {
+    let userDoc = this.getSingleDataRef("event", docId);
+    await updateDoc(userDoc, project.projectToJSON());
+  }
+
+  async deleteData(collectionName: string, docId: string) {
+    let userDoc = this.getSingleDataRef(collectionName, docId);
     await deleteDoc(userDoc);
   }
 
-  getUserRef(collectionName: any) {
+  getDataRef(collectionName: string) {
     return collection(this.firestore, collectionName);
   }
 
-  getSingleUserRef(colId: string, docId: string) {
+  getSingleDataRef(colId: string, docId: string) {
     return doc(collection(this.firestore, colId), docId);
   }
 }

@@ -1,33 +1,15 @@
 <mat-card>
     <mat-card-content>
-        <table class="user-table">
+        <table class="user-table" matSort (matSortChange)="sortUserData($event)">
             <tr>
-                <th>
-                    <div class="sort-wrapper">
-                        Name
-                        <div class="sort-helper">
-                            <mat-icon color="warn" class="sort" (click)="sortName()" matTooltip="sort"
-                                [matTooltipPosition]="'right'">arrow_drop_down</mat-icon>
-                        </div>
-                    </div>
+                <th mat-sort-header="username">
+                    Name
                 </th>
-                <th>
-                    <div class="sort-wrapper">
-                        E-mail
-                        <div class="sort-helper">
-                            <mat-icon color="warn" class="sort" (click)="sortEmail()" matTooltip="sort"
-                                [matTooltipPosition]="'right'">arrow_drop_down</mat-icon>
-                        </div>
-                    </div>
+                <th mat-sort-header="usermail">
+                    E-Mail
                 </th>
-                <th>
-                    <div class="sort-wrapper">
-                        City
-                        <div class="sort-helper">
-                            <mat-icon color="warn" class="sort" (click)="sortCity()" matTooltip="sort"
-                                [matTooltipPosition]="'right'">arrow_drop_down</mat-icon>
-                        </div>
-                    </div>
+                <th mat-sort-header="usercity">
+                    City
                 </th>
             </tr>
             @for (user of allUsers; track $index) {

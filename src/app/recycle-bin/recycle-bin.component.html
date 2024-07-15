@@ -1,10 +1,10 @@
 <mat-card>
     <mat-card-content>
-        <table class="user-table">
+        <table class="user-table" matSort (matSortChange)="sortDeleteData($event)">
             <tr>
-                <th>Name</th>
-                <th>E-mail</th>
-                <th>City</th>
+                <th mat-sort-header="username">Name</th>
+                <th mat-sort-header="usermail">E-mail</th>
+                <th mat-sort-header="usercity">City</th>
             </tr>
             @for (user of allDeletedUsers; track $index) {
             <tr>
@@ -16,8 +16,8 @@
                         (click)="openRestoreDialog(user.id)">
                         <mat-icon>restore_from_trash</mat-icon>
                     </button>
-                    <button mat-mini-fab color="accent" (click)="openFinalDeleteDialog(user.id)" matTooltip="Delete forever"
-                        [matTooltipPosition]="'right'">
+                    <button mat-mini-fab color="accent" (click)="openFinalDeleteDialog(user.id)"
+                        matTooltip="Delete forever" [matTooltipPosition]="'right'">
                         <mat-icon>delete_forever</mat-icon>
                     </button>
                 </div>
