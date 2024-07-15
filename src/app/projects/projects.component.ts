@@ -9,11 +9,12 @@ import { Project } from '../../models/project.class';
 import { FirebaseService } from '../firebase-service/firebase.service';
 import { CommonModule } from '@angular/common';
 import { MatSortModule, Sort } from '@angular/material/sort';
+import { RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-projects',
   standalone: true,
-  imports: [MatCardModule, MatTooltipModule, MatIconModule, MatButtonModule, CommonModule, MatSortModule],
+  imports: [MatCardModule, MatTooltipModule, MatIconModule, MatButtonModule, CommonModule, MatSortModule, RouterModule],
   templateUrl: './projects.component.html',
   styleUrl: './projects.component.scss'
 })

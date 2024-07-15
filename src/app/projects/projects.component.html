@@ -19,7 +19,7 @@
                 </th>
             </tr>
             @for(project of allProjects; track $index){
-            <tr>
+            <tr [routerLink]="'/projects/' + project.id">
                 <td>{{ project.projectName }}</td>
                 <td>{{ project.projectDate | date: 'dd.MM.yyyy' }}</td>
                 <td>{{ project.status }}</td>

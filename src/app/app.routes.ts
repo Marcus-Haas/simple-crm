@@ -5,6 +5,7 @@ import { UserDetailComponent } from './user-detail/user-detail.component';
 import { RecycleBinComponent } from './recycle-bin/recycle-bin.component';
 import { ProjectsComponent } from './projects/projects.component';
 import { ImprintComponent } from './imprint/imprint.component';
+import { ProjectDetailComponent } from './project-detail/project-detail.component';
 
 
 export const routes: Routes = [
@@ -14,7 +15,6 @@ export const routes: Routes = [
     { path: 'user/:id', component: UserDetailComponent },
     { path: 'recycle', component: RecycleBinComponent },
     { path: 'projects', component: ProjectsComponent },
-    { path: 'imprint', component: ImprintComponent }
-
-
+    { path: 'imprint', component: ImprintComponent },
+    { path: 'projects/:id', component: ProjectDetailComponent }
 ];

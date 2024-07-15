@@ -25,6 +25,11 @@ mat-toolbar-row {
     display: flex;
     align-items: center;
     box-sizing: border-box;
+    max-height: 64px;
+
+    >img {
+        height: 60px;
+    }
 }
 
 .menu-items {
