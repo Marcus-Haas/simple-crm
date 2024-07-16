@@ -7,8 +7,8 @@ export class Project {
     id: string;
 
     constructor(obj?: any) {
-        this.projectName = obj ? obj.eventName : '';
-        this.projectDate = obj ? obj.eventDate : '';
+        this.projectName = obj ? obj.projectName : '';
+        this.projectDate = obj ? obj.projectDate : '';
         this.status = obj ? obj.status : '';
         this.manager = obj ? obj.manager : '';
         this.revenue = obj ? obj.revenue : '';

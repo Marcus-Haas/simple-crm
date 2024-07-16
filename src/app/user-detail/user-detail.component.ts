@@ -46,7 +46,7 @@ export class UserDetailComponent implements OnInit {
   getUserDetails() {
     return onSnapshot(this.service.getSingleDataRef("user", this.userId), (element) => {
       this.user = new User(element.data());
-      this.birthday = this.user.birthDate;      
+      this.birthday = this.user.birthDate;            
     });
   }
 

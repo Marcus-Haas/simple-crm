@@ -37,7 +37,7 @@ export class FirebaseService {
   }
 
   async updateEvent(project: Project, docId: string) {
-    let userDoc = this.getSingleDataRef("event", docId);
+    let userDoc = this.getSingleDataRef("project", docId);
     await updateDoc(userDoc, project.projectToJSON());
   }
 

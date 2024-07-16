@@ -1,0 +1,81 @@
+.user-detail-header {
+    min-height: 300px;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-end;
+    background-color: #f75c065e;
+    color: white;
+    padding: 8px;
+    box-sizing: border-box;
+
+    img {
+        height: 100px;
+        width: 100px;
+        object-fit: cover;
+        border-radius: 100%;
+    }
+}
+
+.manager-box {
+    display: flex;
+    align-items: flex-end;
+    font-size: 20px;
+
+    >.material-icons {
+        font-size: 50px;
+        height: 45px;
+        width: 50px;
+    }
+}
+
+.status {
+    position: absolute;
+    right: 8px;
+    bottom: 8px;
+    height: 30px;
+    width: 120px;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: 500;
+    font-size: 20px;
+    border-radius: 10px;
+}
+
+.eventname {
+    position: absolute;
+    top: 8px;
+}
+
+.card-container {
+    margin-top: 16px;
+}
+
+.upper-right-btn {
+    position: absolute;
+    top: 2px;
+    right: 2px;
+}
+
+.head-icon-box {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.done {
+    background-color: rgba(18, 123, 55, 0.60);
+}
+
+.cancelation {
+    background-color: rgba(219, 5, 5, 0.60);
+}
+
+.offer {
+    background-color: rgba(15, 178, 203, 0.60);
+}
+
+.order {
+    background-color: rgba(231, 15, 227, 0.60);
+}
