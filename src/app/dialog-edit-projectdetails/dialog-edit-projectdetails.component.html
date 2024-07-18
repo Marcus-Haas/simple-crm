@@ -1,1 +1,47 @@
-<p>dialog-edit-projectdetails works!</p>
+<div class="dialog-container">
+
+    @if(loading){
+    <mat-progress-bar mode="indeterminate"></mat-progress-bar>
+    }
+
+    <h2 mat-dialog-title>Edit projectdetails</h2>
+    <mat-dialog-content>
+
+        <div class="input-style-container">
+            <mat-form-field appearance="outline" class="full-width">
+                <mat-label>Event name</mat-label>
+                <input [disabled]="loading" [(ngModel)]="project.projectName" matInput placeholder="Event name">
+            </mat-form-field>
+
+        </div>
+
+        <div class="input-style-container">
+            <mat-form-field>
+                <mat-label>Status</mat-label>
+                <mat-select [(ngModel)]="project.status">
+                    <mat-option value="Offer">Offer</mat-option>
+                    <mat-option value="Order">Order</mat-option>
+                    <mat-option value="Cancelation">Cancelation</mat-option>
+                    <mat-option value="Done">Done</mat-option>
+                </mat-select>
+            </mat-form-field>
+        </div>
+
+        <div class="input-style-container">
+            <mat-form-field>
+                <mat-label>Project manager</mat-label>
+                <mat-select [(ngModel)]="project.manager">
+                    @for(user of allUsers; track $index){
+                    <mat-option value="{{ user.firstName }} {{ user.lastName }}">{{ user.firstName }} {{
+                        user.lastName}}</mat-option>
+                    }
+                </mat-select>
+            </mat-form-field>
+        </div>
+
+    </mat-dialog-content>
+    <mat-dialog-actions>
+        <button mat-button (click)="dialogRef.close()">Cancel</button>
+        <button mat-button (click)="saveProjectDetails()" cdkFocusInitial>Save</button>
+    </mat-dialog-actions>
+</div>

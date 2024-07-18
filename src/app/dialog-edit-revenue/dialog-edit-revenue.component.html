@@ -1,1 +1,22 @@
-<p>dialog-edit-revenue works!</p>
+<div class="dialog-container">
+
+    @if(loading){
+    <mat-progress-bar mode="indeterminate"></mat-progress-bar>
+    }
+
+    <h2 mat-dialog-title>Edit revenue</h2>
+    <mat-dialog-content>
+
+        <div class="input-style-container">
+            <mat-form-field appearance="outline" class="full-width">
+                <mat-label>Revenue EUR</mat-label>
+                <input [disabled]="loading" [(ngModel)]="project.revenue" matInput placeholder="Revenue">
+            </mat-form-field>
+        </div>
+
+    </mat-dialog-content>
+    <mat-dialog-actions>
+        <button mat-button (click)="dialogRef.close()">Cancel</button>
+        <button mat-button (click)="saveRevenue()" cdkFocusInitial>Save</button>
+    </mat-dialog-actions>
+</div>
