@@ -1,2 +1,23 @@
+<div class="dashboard-main">
+    <mat-card>
+        <mat-card-header>
+            <mat-card-title>Overview Revenue in EUR of Top Managers</mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+            <div class="chart-container">
+                <canvas id="MyChart">{{ chart }}</canvas>
+            </div>
+        </mat-card-content>
+    </mat-card>
 
-<p>dashboard works!</p>
+    <mat-card>
+        <mat-card-header>
+            <mat-card-title>Amount of Projects per Manager</mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+            <div class="chart-container">
+                <canvas id="pie">{{ pieChart }}</canvas>
+            </div>
+        </mat-card-content>
+    </mat-card>
+</div>

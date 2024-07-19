@@ -10,7 +10,7 @@
         <div class="input-style-container">
             <mat-form-field appearance="outline" class="full-width">
                 <mat-label>Revenue EUR</mat-label>
-                <input [disabled]="loading" [(ngModel)]="project.revenue" matInput placeholder="Revenue">
+                <input type="number" [disabled]="loading" [(ngModel)]="project.revenue" matInput placeholder="Revenue">
             </mat-form-field>
         </div>
 

@@ -8,10 +8,10 @@ export class Project {
 
     constructor(obj?: any) {
         this.projectName = obj ? obj.projectName : '';
-        this.projectDate = obj ? obj.projectDate : '';
+        this.projectDate = obj ? obj.projectDate : 0;
         this.status = obj ? obj.status : '';
         this.manager = obj ? obj.manager : '';
-        this.revenue = obj ? obj.revenue : '';
+        this.revenue = obj ? obj.revenue : 0;
         this.id = obj ? obj.id : '';
     }
 

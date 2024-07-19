@@ -10,11 +10,21 @@
     width: 300px;
 }
 
+.sidenav-content {
+    margin-top: 70px;
+}
+
 mat-toolbar,
 mat-toolbar-row {
     min-height: 64px;
     height: 64px;
     gap: 8px;
+}
+
+mat-toolbar {
+    position: fixed;
+    top: 0;
+    z-index: 1;
 }
 
 .logo-container {
