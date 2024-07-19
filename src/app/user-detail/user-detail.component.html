@@ -10,13 +10,22 @@
     <div class="user-box">
         <img src="./assets/img/avatar.png" alt="">
         <div class="user-detail">
-            <h2>{{ user.firstName }} {{ user.lastName }}</h2>
-            {{ user.email }}
+            <h1>{{ user.firstName }} {{ user.lastName }}</h1>
+            <div class="user-mail">
+                <div>
+                    <mat-icon>alternate_email</mat-icon>
+                    <a href="mailto:{{user.email}}">{{ user.email }}</a>
+                </div>
+                <div>
+                    <mat-icon>call</mat-icon>
+                    <a href="tel:+{{ user.phone }}">{{ user.phone }}</a>
+                </div>
+            </div>
         </div>
     </div>
 
-    <button (click)="openRecycleDialog();" class="trash-btn" mat-mini-fab color="primary"
-        matTooltip="Delete User" [matTooltipPosition]="'before'">
+    <button (click)="openRecycleDialog();" class="trash-btn" mat-mini-fab color="primary" matTooltip="Delete User"
+        [matTooltipPosition]="'before'">
         <mat-icon>delete</mat-icon>
     </button>
 </mat-card>

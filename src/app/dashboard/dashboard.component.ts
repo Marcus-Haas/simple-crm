@@ -37,10 +37,10 @@ export class DashboardComponent implements OnInit {
     setTimeout(() => {
       for (let index = 0; index < this.projects.length; index++) {
         let x = this.projects[index].revenue;
-        if (this.projects[index].manager == 'Marcus Haas') {
+        if (this.projects[index].manager == 'Max Muster') {
           this.revenueManagerA += x;
           this.managerA++;
-        } else if (this.projects[index].manager == 'Edna Hund') {
+        } else if (this.projects[index].manager == 'Sonja Sonnig') {
           this.revenueManagerB += x;
           this.managerB++;
         } else {
@@ -59,10 +59,10 @@ export class DashboardComponent implements OnInit {
 
   createChart() {
     this.chart = new Chart("MyChart", {
-      type: 'bar', //this denotes the type of chart
+      type: 'bar',
 
-      data: {// values on X-Axis
-        labels: ['Marcus Haas', 'Edna Hund', 'Other Manager'],
+      data: {
+        labels: ['Max Muster', 'Sonja Sonnig', 'Other Manager'],
         datasets: [
           {
             label: "Revenue in €",
@@ -89,11 +89,11 @@ export class DashboardComponent implements OnInit {
 
   createPieChart() {
     this.pieChart = new Chart("pie", {
-      type: 'pie', //this denotes the type of chart
+      type: 'pie',
       data: {
         labels: [
-          'Marcus Haas',
-          'Edna Hund',
+          'Max Muster',
+          'Sonja Sonnig',
           'Other Manager'
         ],
         datasets: [{
