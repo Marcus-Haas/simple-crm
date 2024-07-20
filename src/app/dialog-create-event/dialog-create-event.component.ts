@@ -31,7 +31,6 @@ export class DialogCreateEventComponent implements OnInit {
 
   ngOnInit(): void {
     this.service.ReadData("user", this.allUsers);
-    console.log(this.allUsers);
   }
 
   async saveProject() {

@@ -24,7 +24,7 @@
                 <td>{{ project.projectDate | date: 'dd.MM.yyyy' }}</td>
                 <td>{{ project.status }}</td>
                 <td>{{ project.manager }}</td>
-                <td>{{ project.revenue }} EUR</td>
+                <td>{{ project.revenue.toLocaleString() }} EUR</td>
             </tr>
             }
         </table>

@@ -2,10 +2,6 @@
     display: flex;
     gap: 8px;
     flex-direction: column;
-
-    // >mat-card {
-    //     height: 45vh;
-    // }
 }
 
 .mat-mdc-card-content>:last-child:not(.mat-mdc-card-footer) {

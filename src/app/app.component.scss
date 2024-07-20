@@ -10,10 +10,6 @@
     width: 300px;
 }
 
-.sidenav-content {
-    margin-top: 70px;
-}
-
 mat-toolbar,
 mat-toolbar-row {
     min-height: 64px;
@@ -22,7 +18,7 @@ mat-toolbar-row {
 }
 
 mat-toolbar {
-    position: fixed;
+    position: sticky;
     top: 0;
     z-index: 1;
 }

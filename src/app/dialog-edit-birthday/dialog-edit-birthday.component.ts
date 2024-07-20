@@ -23,8 +23,7 @@ export class DialogEditBirthdayComponent implements OnInit {
   user: User = new User();
   birthday: Date = new Date();
 
-  constructor(public dialogRef: MatDialogRef<DialogEditBirthdayComponent>, private service: FirebaseService) {
-  }
+  constructor(public dialogRef: MatDialogRef<DialogEditBirthdayComponent>, private service: FirebaseService) { }
 
   ngOnInit(): void {
     this.birthday = new Date(this.user.birthDate)

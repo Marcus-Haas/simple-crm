@@ -12,11 +12,14 @@ import { DialogEditEventdateComponent } from '../dialog-edit-eventdate/dialog-ed
 import { MatDialog } from '@angular/material/dialog';
 import { DialogEditRevenueComponent } from '../dialog-edit-revenue/dialog-edit-revenue.component';
 import { DialogEditProjectdetailsComponent } from '../dialog-edit-projectdetails/dialog-edit-projectdetails.component';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-project-detail',
   standalone: true,
-  imports: [MatCardModule, MatIconModule, MatMenuModule, CommonModule, MatButtonModule],
+  imports: [MatCardModule, MatIconModule, MatMenuModule, CommonModule, MatButtonModule, MatFormFieldModule, MatInputModule, FormsModule],
   templateUrl: './project-detail.component.html',
   styleUrl: './project-detail.component.scss'
 })
@@ -28,7 +31,7 @@ export class ProjectDetailComponent implements OnInit {
 
   constructor(private route: ActivatedRoute, private service: FirebaseService, public dialog: MatDialog) {
     this.getProjectId();
-   }
+  }
 
   ngOnInit(): void {
     this.getProjectDetails();
@@ -52,16 +55,19 @@ export class ProjectDetailComponent implements OnInit {
     dialog.componentInstance.projectId = this.projectId;
   }
 
-  editRevenue(){
+  editRevenue() {
     const dialog = this.dialog.open(DialogEditRevenueComponent);
     dialog.componentInstance.project = new Project(this.project.projectToJSON());
     dialog.componentInstance.projectId = this.projectId;
   }
 
-  editProjectDetails(){
+  editProjectDetails() {
     const dialog = this.dialog.open(DialogEditProjectdetailsComponent);
     dialog.componentInstance.project = new Project(this.project.projectToJSON());
     dialog.componentInstance.projectId = this.projectId;
   }
 
+  saveProjectNote() {
+    this.service.updateEvent(this.project, this.projectId);
+  }
 }

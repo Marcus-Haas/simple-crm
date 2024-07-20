@@ -33,7 +33,6 @@ export class DialogAddUserComponent {
   async saveUser() {
     this.loading = true;
     this.user.birthDate = this.birthDate.getTime();
-    console.log('Current user is', this.user);
     await this.service.addData("user", this.user.toJSON());
     this.closeDialog();
   }

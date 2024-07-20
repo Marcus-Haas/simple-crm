@@ -14,11 +14,15 @@ import { DialogEditBirthdayComponent } from '../dialog-edit-birthday/dialog-edit
 import { CommonModule } from '@angular/common';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { DialogRecycleUserComponent } from '../dialog-recycle-user/dialog-recycle-user.component';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-user-detail',
   standalone: true,
-  imports: [MatCardModule, MatIcon, MatButtonModule, MatMenuModule, CommonModule, MatTooltipModule],
+  imports: [MatCardModule, MatIcon, MatButtonModule, MatMenuModule, CommonModule, MatTooltipModule, MatFormFieldModule,
+    MatInputModule, FormsModule],
   templateUrl: './user-detail.component.html',
   styleUrl: './user-detail.component.scss'
 })
@@ -46,7 +50,7 @@ export class UserDetailComponent implements OnInit {
   getUserDetails() {
     return onSnapshot(this.service.getSingleDataRef("user", this.userId), (element) => {
       this.user = new User(element.data());
-      this.birthday = this.user.birthDate;            
+      this.birthday = this.user.birthDate;
     });
   }
 
@@ -73,5 +77,9 @@ export class UserDetailComponent implements OnInit {
     const dialog = this.dialog.open(DialogRecycleUserComponent);
     dialog.componentInstance.user = new User(this.user.toJSON());
     dialog.componentInstance.userId = this.userId;
+  }
+
+  saveNote() {
+    this.service.updateUser(this.user, this.userId);
   }
 }

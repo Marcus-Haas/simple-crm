@@ -5,6 +5,7 @@ export class Project {
     manager: string;
     revenue: number;
     id: string;
+    note: string;
 
     constructor(obj?: any) {
         this.projectName = obj ? obj.projectName : '';
@@ -13,6 +14,7 @@ export class Project {
         this.manager = obj ? obj.manager : '';
         this.revenue = obj ? obj.revenue : 0;
         this.id = obj ? obj.id : '';
+        this.note = obj ? obj.note : '';
     }
 
     public projectToJSON() {
@@ -22,7 +24,8 @@ export class Project {
             status: this.status,
             manager: this.manager,
             revenue: this.revenue,
-            id: this.id
+            id: this.id,
+            note: this.note
         }
     }
 }

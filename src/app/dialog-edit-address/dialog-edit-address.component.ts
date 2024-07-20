@@ -25,9 +25,7 @@ export class DialogEditAddressComponent {
   userId: string = '';
 
 
-  constructor(public dialogRef: MatDialogRef<DialogEditAddressComponent>, private service: FirebaseService) {
-  }
-
+  constructor(public dialogRef: MatDialogRef<DialogEditAddressComponent>, private service: FirebaseService) { }
 
 
   saveUser() {

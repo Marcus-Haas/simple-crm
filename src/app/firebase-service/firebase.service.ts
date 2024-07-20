@@ -10,8 +10,7 @@ import { Project } from '../../models/project.class';
 export class FirebaseService {
   firestore: Firestore = inject(Firestore);
   id: string = '';
-  constructor() {
-  }
+  constructor() { }
 
   async addData(collectionName: any, Data: object) {
     await addDoc(this.getDataRef(collectionName), Data)

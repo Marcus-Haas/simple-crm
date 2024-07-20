@@ -26,6 +26,13 @@
         </div>
 
         <div class="input-style-container">
+            <mat-form-field appearance="outline" class="full-width">
+                <mat-label>Revenue EUR</mat-label>
+                <input type="number" [disabled]="loading" [(ngModel)]="project.revenue" matInput placeholder="Euro">
+            </mat-form-field>
+        </div>
+
+        <div class="input-style-container">
             <mat-form-field>
                 <mat-label>Status</mat-label>
                 <mat-select [(ngModel)]="project.status">
@@ -36,18 +43,12 @@
                 </mat-select>
             </mat-form-field>
 
-            <mat-form-field appearance="outline">
-                <mat-label>Revenue</mat-label>
-                <input type="number" [disabled]="loading" [(ngModel)]="project.revenue" matInput placeholder="Euro">
-            </mat-form-field>
-        </div>
-
-        <div class="input-style-container">
             <mat-form-field>
                 <mat-label>Project manager</mat-label>
                 <mat-select [(ngModel)]="project.manager">
                     @for(user of allUsers; track $index){
-                    <mat-option value="{{ user.firstName }} {{ user.lastName }}">{{ user.firstName }} {{ user.lastName}}</mat-option>
+                    <mat-option value="{{ user.firstName }} {{ user.lastName }}">{{ user.firstName }} {{
+                        user.lastName}}</mat-option>
                     }
                 </mat-select>
             </mat-form-field>

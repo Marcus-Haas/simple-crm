@@ -1,15 +1,22 @@
 /* You can add global styles to this file, and also import other style files */
 
-html,
 body {
     height: 100%;
-}
-
-body {
-    margin: 0;
+    margin: auto;
     font-family: Roboto, "Helvetica Neue", sans-serif;
+    max-width: 1920px;
 }
 
 .full-width {
     width: 100%;
+}
+
+.dialog-container {
+    position: relative;
+}
+
+.input-style-container {
+    display: flex;
+    gap: 16px;
+    padding-top: 4px;
 }

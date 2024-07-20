@@ -30,27 +30,32 @@ export class DashboardComponent implements OnInit {
 
   ngOnInit(): void {
     this.service.ReadData("project", this.projects);
-    this.getData();
+    this.getDataAndChart();
   }
 
-  getData() {
+  getDataAndChart() {
     setTimeout(() => {
-      for (let index = 0; index < this.projects.length; index++) {
-        let x = this.projects[index].revenue;
-        if (this.projects[index].manager == 'Max Muster') {
-          this.revenueManagerA += x;
-          this.managerA++;
-        } else if (this.projects[index].manager == 'Sonja Sonnig') {
-          this.revenueManagerB += x;
-          this.managerB++;
-        } else {
-          this.revenueManagerC += x;
-          this.managerC++;
-        }
-      }
+      this.managerData();
       this.createChart();
       this.createPieChart();
     }, 1000);
+
+  }
+
+  managerData() {
+    for (let index = 0; index < this.projects.length; index++) {
+      let x = this.projects[index].revenue;
+      if (this.projects[index].manager == 'Max Muster') {
+        this.revenueManagerA += x;
+        this.managerA++;
+      } else if (this.projects[index].manager == 'Sonja Sonnig') {
+        this.revenueManagerB += x;
+        this.managerB++;
+      } else {
+        this.revenueManagerC += x;
+        this.managerC++;
+      }
+    }
   }
 
   getAverageRevenue() {
@@ -91,19 +96,11 @@ export class DashboardComponent implements OnInit {
     this.pieChart = new Chart("pie", {
       type: 'pie',
       data: {
-        labels: [
-          'Max Muster',
-          'Sonja Sonnig',
-          'Other Manager'
-        ],
+        labels: ['Max Muster', 'Sonja Sonnig', 'Other Manager'],
         datasets: [{
           label: 'Amount of Projects',
           data: [this.managerA, this.managerB, this.managerC],
-          backgroundColor: [
-            'rgb(255, 99, 132)',
-            'rgb(54, 162, 235)',
-            'rgb(255, 205, 86)'
-          ],
+          backgroundColor: ['rgb(255, 99, 132)', 'rgb(54, 162, 235)', 'rgb(255, 205, 86)'],
           hoverOffset: 4
         }]
       },
