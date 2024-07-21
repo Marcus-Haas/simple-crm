@@ -26,10 +26,11 @@ export class DashboardComponent implements OnInit {
   averageRevenue: number = 0;
 
 
-  constructor(private service: FirebaseService) { }
+  constructor(private service: FirebaseService) {
+    this.service.ReadData("project", this.projects);
+   }
 
   ngOnInit(): void {
-    this.service.ReadData("project", this.projects);
     this.getDataAndChart();
   }
 
@@ -38,7 +39,7 @@ export class DashboardComponent implements OnInit {
       this.managerData();
       this.createChart();
       this.createPieChart();
-    }, 1000);
+    }, 1200);
 
   }
 
