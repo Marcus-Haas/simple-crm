@@ -3,6 +3,8 @@ import { Chart } from 'chart.js/auto';
 import { FirebaseService } from '../firebase-service/firebase.service';
 import { Project } from '../../models/project.class';
 import { MatCardModule } from '@angular/material/card';
+import { Firestore, collection, addDoc, onSnapshot, doc, updateDoc, deleteDoc } from '@angular/fire/firestore';
+
 
 @Component({
   selector: 'app-dashboard',
@@ -27,20 +29,23 @@ export class DashboardComponent implements OnInit {
 
 
   constructor(private service: FirebaseService) {
-    this.service.ReadData("project", this.projects);
-   }
+  }
 
   ngOnInit(): void {
+    this.service.ReadData("project", this.projects);
     this.getDataAndChart();
   }
 
   getDataAndChart() {
-    setTimeout(() => {
+    if (this.projects.length > 0) {
       this.managerData();
       this.createChart();
       this.createPieChart();
-    }, 1200);
-
+    } else {
+      setTimeout(() => {
+        this.getDataAndChart();
+      }, 1000);
+    }
   }
 
   managerData() {
