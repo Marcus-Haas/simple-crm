@@ -3,7 +3,6 @@ import { Chart } from 'chart.js/auto';
 import { FirebaseService } from '../firebase-service/firebase.service';
 import { Project } from '../../models/project.class';
 import { MatCardModule } from '@angular/material/card';
-import { Firestore, collection, addDoc, onSnapshot, doc, updateDoc, deleteDoc } from '@angular/fire/firestore';
 
 
 @Component({
